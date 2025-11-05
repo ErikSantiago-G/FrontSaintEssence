@@ -1,0 +1,251 @@
+// ========================================
+// DESIGN SYSTEM - MIXINS
+// ========================================
+
+@use 'variables' as *;
+@use 'breakpoints.mixins' as *;
+
+// Mixin para crear texto responsivo
+@mixin responsive-text($mobile-size, $desktop-size) {
+  font-size: $mobile-size;
+  
+  @include media-ltmd(){
+    font-size: $desktop-size;
+  }
+
+}
+
+// Mixin para truncar texto
+@mixin text-truncate($width: 100%) {
+  width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Mixin para texto de múltiples líneas
+@mixin text-clamp($lines: 3) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ========================================
+// MIXINS DE LAYOUT
+// ========================================
+
+// Flexbox center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Flex between
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Container responsive
+@mixin container($max-width: $breakpoint-value-xl) {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @include media-ltmd(){
+    padding: 0 $spacing-6;
+  }
+}
+
+// Grid responsive
+@mixin grid($columns: 12, $gap: $spacing-6) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+  
+  @include media-ltmd(){
+    grid-template-columns: 1fr;
+    gap: $spacing-4;
+  }
+}
+
+// ========================================
+// MIXINS DE COMPONENTES
+// ========================================
+
+// Botón base
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3 $spacing-6;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-all;
+  user-select: none;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Card base
+@mixin card-base {
+  background: $bg-primary;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow;
+  padding: $spacing-6;
+  border: 1px solid $border-light;
+}
+
+// Input base
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  transition: $transition-colors;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+// ========================================
+// MIXINS DE ESTADOS
+// ========================================
+
+// Hover lift
+@mixin hover-lift {
+  transition: transform $transition-duration-normal $transition-timing-ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Focus ring
+@mixin focus-ring($color: $primary-color) {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color, 0.2);
+  }
+}
+
+// Loading state
+@mixin loading-shimmer {
+  background: linear-gradient(90deg, 
+    $color-gray-200 25%, 
+    $color-gray-100 50%, 
+    $color-gray-200 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+// ========================================
+// MIXINS DE ANIMACIONES
+// ========================================
+
+// Fade in animation
+@mixin fade-in($duration: $transition-duration-normal) {
+  animation: fadeIn $duration $transition-timing-ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// Slide in animation
+@mixin slide-in-up($duration: $transition-duration-normal) {
+  animation: slideInUp $duration $transition-timing-ease forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Scale animation
+@mixin scale-in($duration: $transition-duration-fast) {
+  animation: scaleIn $duration $transition-timing-ease forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ========================================
+// MIXINS DE UTILIDADES
+// ========================================
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Visually hidden (for accessibility)
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

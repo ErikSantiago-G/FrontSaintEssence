@@ -1,0 +1,50 @@
+@use "@/styles/utils" as *;
+
+.product-details {
+  background: #fafaff;
+  padding: 4rem 2rem;
+  color: #1a1a2e;
+  font-family: "Inter", sans-serif;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__main {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    @include media-gtmd() {
+      box-shadow: 0px 0px 25px 10px #eae7f2;
+      padding: 1rem;
+    }
+
+    @include media-ltlg() {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__notfound {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: $font-tertiary;
+      color: #888;
+    }
+
+    button {
+      font-family: $font-tertiary;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+@use "@/styles/utils" as *;
+
+.product-card {
+    background-color: $color-gray-50;
+    width: 270px;
+    height: 361px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: $transition-all;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    &.loading {
+        .product-card__icons,
+        .product-card__image,
+        .product-card__info {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        align-self: self-start;
+        margin-left: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: 0.3s opacity ease-out;
+
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: transparent;
+            transition:
+                background-color 0.2s ease,
+                transform 0.15s ease;
+            cursor: pointer;
+
+            svg {
+                width: 19px;
+                height: 19px;
+                color: #1389ff;
+                transition: color 0.2s ease;
+            }
+
+            &:hover {
+                background-color: #eeeffb;
+                transform: scale(1.05);
+
+                svg {
+                    color: #fa2f84;
+                }
+            }
+        }
+    }
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3.21rem 1rem 1rem 1rem;
+        transition: transform 0.3s ease;
+        min-height: 175px;
+
+        img {
+            width: 175px;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 175px;
+            height: 175px;
+            border-radius: 8px;
+            background: $color-gray-100;
+
+            &__icon {
+                width: 40px;
+                height: 40px;
+                color: $color-gray-400;
+            }
+        }
+    }
+
+    &__info {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: $text-light;
+        gap: 4px;
+        width: 100%;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+    }
+
+    &__title {
+        color: #e91e63;
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease;
+    }
+
+    &__category {
+        color: #151875;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        font-family: $font-tertiary;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    &__stock {
+        color: #151875;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        font-family: $font-tertiary;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    &__price {
+        font-weight: 400;
+        font-size: 14px;
+        font-family: "Lato", sans-serif;
+        color: #151875;
+        margin: 0;
+        transition: color 0.3s ease;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+
+        .product-card__icons {
+            opacity: 1;
+        }
+
+        .product-card__image img {
+            transform: scale(1.05);
+        }
+
+        .product-card__info {
+            background-color: #fa2f84;
+            color: $text-light;
+        }
+
+        .product-card__code,
+        .product-card__title,
+        .product-card__stock,
+        .product-card__category,
+        .product-card__price {
+            color: $text-light;
+        }
+    }
+}

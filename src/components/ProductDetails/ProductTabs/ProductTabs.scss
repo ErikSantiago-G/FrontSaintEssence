@@ -1,0 +1,51 @@
+@use "@/styles/utils" as *;
+
+.product-tabs {
+  background: #f8f8ff;
+  border-radius: 10px;
+  width: 100%;
+
+  h3 {
+    background: none;
+    border: none;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-weight: 500;
+    color: #151875;
+    border-bottom: 2px solid transparent;
+    font-family: $font-tertiary;
+    font-size: 24px;
+
+    &.active {
+      color: #6c63ff;
+      border-color: #6c63ff;
+    }
+  }
+
+  &__content {
+    h3,
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #a9acc6;
+      margin-bottom: 1rem;
+      font-family: $font-tertiary;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #a9acc6;
+        font-family: $font-tertiary;
+      }
+    }
+  }
+}

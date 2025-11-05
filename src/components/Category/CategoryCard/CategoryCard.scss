@@ -1,0 +1,81 @@
+@use "@/styles/utils" as *;
+
+.category-card {
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+
+  &__image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8f8f8;
+    width: 269px;
+    height: 269px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    img {
+      width: 178px;
+      height: 178px;
+      object-fit: contain;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00b25c;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: $font-tertiary;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2;
+
+    &:hover {
+      background-color: #00944f;
+    }
+  }
+
+  &__info {
+    margin-top: 1rem;
+  }
+
+  &__name {
+    margin: 0;
+    font-family: $font-tertiary;
+    font-size: 20px;
+    color: #151875;
+  }
+
+  &__price {
+    margin: 0;
+    font-family: $font-tertiary;
+    font-size: 16px;
+    color: #151875;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    .category-card__button {
+      opacity: 1;
+      visibility: visible;
+      bottom: 25px;
+    }
+  }
+}

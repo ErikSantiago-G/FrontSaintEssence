@@ -1,0 +1,23 @@
+@use "@/styles/utils" as *;
+
+.featured-products__grid {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    text-align: center;
+    font-family: $font-tertiary;
+    font-size: 42px;
+    color: #151875;
+    margin-top: 2rem;
+  }
+}
+
+.featured-products__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: $spacing-6;
+  padding: $spacing-6;
+  justify-items: center;
+  align-items: center;
+}

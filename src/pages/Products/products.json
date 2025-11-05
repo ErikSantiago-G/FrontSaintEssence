@@ -1,0 +1,86 @@
+[
+  {
+    "id": "Y523201",
+    "name": "Cantilever chair",
+    "price": 42.0,
+    "image": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761773837/image_1168_cwzbe3.svg",
+    "colors": ["#E91E63", "#00E5A0", "#03A9F4", "#9C27B0"]
+  },
+  {
+    "id": "B829912",
+    "name": "Modern Lamp",
+    "price": 65.5,
+    "image": "https://res.cloudinary.com/demo/image/upload/lamp.svg",
+    "colors": ["#FF4081", "#2196F3", "#9C27B0"]
+  },
+  {
+    "id": "A773420",
+    "name": "Wooden Coffee Table",
+    "price": 120.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547123/wooden-table.svg",
+    "colors": ["#795548", "#BCAAA4", "#D7CCC8"]
+  },
+  {
+    "id": "C912653",
+    "name": "Minimalist Sofa",
+    "price": 480.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547212/minimal-sofa.svg",
+    "colors": ["#607D8B", "#F5F5F5", "#B0BEC5"]
+  },
+  {
+    "id": "M183745",
+    "name": "Classic Armchair",
+    "price": 220.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547321/armchair.svg",
+    "colors": ["#F44336", "#FF9800", "#4CAF50"]
+  },
+  {
+    "id": "L276309",
+    "name": "Glass Dining Table",
+    "price": 315.5,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547422/glass-table.svg",
+    "colors": ["#9E9E9E", "#E0E0E0", "#212121"]
+  },
+  {
+    "id": "N884510",
+    "name": "Wall Art Canvas",
+    "price": 75.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547523/wall-art.svg",
+    "colors": ["#FF5722", "#FFC107", "#03A9F4"]
+  },
+  {
+    "id": "P673281",
+    "name": "Floor Lamp Nordic",
+    "price": 89.9,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547624/floor-lamp.svg",
+    "colors": ["#9C27B0", "#3F51B5", "#009688"]
+  },
+  {
+    "id": "T128947",
+    "name": "Bookshelf Vintage",
+    "price": 185.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547725/bookshelf.svg",
+    "colors": ["#8D6E63", "#6D4C41", "#A1887F"]
+  },
+  {
+    "id": "H429173",
+    "name": "Pendant Light",
+    "price": 58.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547826/pendant-light.svg",
+    "colors": ["#FFC107", "#FFEB3B", "#FF9800"]
+  },
+  {
+    "id": "R238714",
+    "name": "Modern Rug",
+    "price": 130.0,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723547927/rug.svg",
+    "colors": ["#FFAB91", "#4DB6AC", "#9575CD"]
+  },
+  {
+    "id": "S591283",
+    "name": "Bedside Table",
+    "price": 99.5,
+    "image": "https://res.cloudinary.com/demo/image/upload/v1723548028/bedside-table.svg",
+    "colors": ["#795548", "#A1887F", "#D7CCC8"]
+  }
+]

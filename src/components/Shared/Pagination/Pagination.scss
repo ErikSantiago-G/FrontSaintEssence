@@ -1,0 +1,35 @@
+@use "@/styles/utils" as *;
+@use "sass:color";
+
+.pagination {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+
+  button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0.2rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+
+    &.active {
+      background-color: #fb2e86;
+      color: #fff;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: color.adjust(#0071e3, $lightness: 40%);
+
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}

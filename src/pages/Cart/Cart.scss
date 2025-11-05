@@ -1,0 +1,150 @@
+@use "@/styles/utils" as *;
+
+.cart {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  height: 90vh;
+
+  &__content {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+
+    @include media-ltlg() {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__table-wrapper {
+    flex: 1 1 65%;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    th {
+      font-weight: 600;
+      color: #1d3178;
+      font-family: $font-tertiary;
+      padding: 1rem 0;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: 2px solid #eee;
+    }
+
+    td {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid #eee;
+      vertical-align: middle;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+  &__btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #fb2e86;
+    color: #fff;
+    font-size: 16px;
+    font-family: $font-tertiary;
+  }
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .cart__content {
+    flex-direction: column;
+  }
+
+  .cart__sidebar {
+    width: 100%;
+  }
+}
+
+@include media-xs(){
+  .cart {
+    padding: 2rem 0.5rem;
+  }
+
+  .cart__table {
+    font-size: 14px;
+
+    th,
+    td {
+      padding: 0.6rem 0.3rem;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    td {
+      border: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    td:nth-child(4) {
+      display: none;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #1d3178;
+      text-transform: capitalize;
+    }
+  }
+
+  .cart__actions {
+    flex-direction: column;
+    gap: 0.8rem;
+
+    .cart__btn {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  .cart__sidebar {
+    width: 100%;
+    padding-top: 2rem;
+  }
+}
+
+.cart__sidebar {
+  margin: 0 auto;
+}

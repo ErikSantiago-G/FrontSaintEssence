@@ -1,0 +1,45 @@
+@use "@/styles/utils" as *;
+
+.top-categories {
+  text-align: center;
+  padding: 2rem;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #151875;
+    font-size: 42px;
+    font-family: $font-tertiary;
+    margin-bottom: 2rem;
+  }
+
+  &__slider {
+    position: relative;
+    padding-bottom: 50px;
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border: 2px solid #ff2d87;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ff2d87;
+    border-color: #ff2d87;
+  }
+}

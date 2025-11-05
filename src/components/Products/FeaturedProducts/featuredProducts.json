@@ -1,0 +1,105 @@
+[
+  {
+    "id": "457c43d8-380b-401b-8f52-b128560ba43d",
+    "name": "Citrus Horizon",
+    "slug": "citrus-horizon",
+    "description": "Una loción fresca y sofisticada con notas de salida de pomelo, mandarina y limón verde, complementadas con un fondo amaderado suave. Perfecta para días activos y ambientes cálidos.",
+    "price": 74.9,
+    "stock": 77,
+    "images": [
+      "https://atenafragrances.com.au/cdn/shop/files/IMG-0366.jpg?v=1753066901",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW3vfK6prG0aemclTeE66bGw_G8zHpjjd-MKNnwdGpSdDt29sz86F4UseYm4AGT8pEcUQ&usqp=CAU"
+    ],
+    "isActive": true,
+    "categoryId": "8ca279a6-ef66-4b5f-be28-4305b1e3933b",
+    "createdAt": "2025-10-08T06:55:15.049Z",
+    "updatedAt": "2025-10-08T08:02:15.081Z",
+    "category": {
+      "id": "8ca279a6-ef66-4b5f-be28-4305b1e3933b",
+      "name": "Familia cítrica",
+      "slug": "citrica",
+      "description": "Perfumes frescos y vibrantes con notas de limón, bergamota, naranja o mandarina. Ideales para el día o climas cálidos.",
+      "imageUrl": "https://abanuc.com/cdn/shop/collections/1872_8.jpg?v=1687771061",
+      "isActive": true,
+      "createdAt": "2025-10-08T06:43:30.206Z",
+      "updatedAt": "2025-10-08T06:47:16.085Z"
+    }
+  },
+  {
+    "id": "97497863-713e-4150-ac44-fc33d1933855",
+    "name": "khamrah lattafa",
+    "slug": "khamrah lattafa",
+    "description": "Khamrah Lattafa es una fragancia árabe unisex que combina la calidez especiada con un fondo dulce y envolvente.",
+    "price": 200,
+    "stock": 45,
+    "images": [
+      "https://fimgs.net/mdimg/perfume/o.75805.jpg"
+    ],
+    "isActive": true,
+    "categoryId": "b9e4b1c8-8fee-4a23-b53f-09edafa1cc00",
+    "createdAt": "2025-10-08T06:55:07.333Z",
+    "updatedAt": "2025-10-08T23:39:23.209Z",
+    "category": {
+      "id": "b9e4b1c8-8fee-4a23-b53f-09edafa1cc00",
+      "name": "Familias Olfativas Árabes",
+      "slug": "perfumes-arabes-familias",
+      "description": "Categoría de perfumes árabes organizada por familias olfativas como amaderada, oriental, floral y especiada",
+      "imageUrl": "https://perfumescolombia.com.co/cdn/shop/files/lattafa-badee-al-oud-amethyst-original-edp-100ml-6950781.png?v=1751884171",
+      "isActive": true,
+      "createdAt": "2025-10-08T06:47:47.028Z",
+      "updatedAt": "2025-10-08T06:47:47.028Z"
+    }
+  },
+  {
+    "id": "b74b3d40-ae79-479e-b957-24d4ce4ddb3a",
+    "name": "Lattafa Amethyst",
+    "slug": "Lattafa Amethyst",
+    "description": "Perfume árabe femenino con notas florales, amaderadas y orientales. Elegante y envolvente, ideal para ocasiones especiales.",
+    "price": 100.99,
+    "stock": 80,
+    "images": [
+      "https://perfumescolombia.com.co/cdn/shop/files/lattafa-badee-al-oud-amethyst-original-edp-100ml-6950781.png?v=1751884171",
+      "https://attoperfumes.com.co/cdn/shop/files/D3BF9AC6-68E0-4FAA-8AE6-E46EA97ADEA32.jpg?v=1695230241&width=1946"
+    ],
+    "isActive": true,
+    "categoryId": "b9e4b1c8-8fee-4a23-b53f-09edafa1cc00",
+    "createdAt": "2025-10-08T06:52:24.326Z",
+    "updatedAt": "2025-10-08T23:59:20.749Z",
+    "category": {
+      "id": "b9e4b1c8-8fee-4a23-b53f-09edafa1cc00",
+      "name": "Familias Olfativas Árabes",
+      "slug": "perfumes-arabes-familias",
+      "description": "Categoría de perfumes árabes organizada por familias olfativas como amaderada, oriental, floral y especiada",
+      "imageUrl": "https://perfumescolombia.com.co/cdn/shop/files/lattafa-badee-al-oud-amethyst-original-edp-100ml-6950781.png?v=1751884171",
+      "isActive": true,
+      "createdAt": "2025-10-08T06:47:47.028Z",
+      "updatedAt": "2025-10-08T06:47:47.028Z"
+    }
+  },
+  {
+    "id": "39dff9aa-f599-4257-8be8-296d2511606e",
+    "name": "Aqua di Citrus",
+    "slug": "aqua-di-citrus",
+    "description": "Un perfume fresco y energético con notas de limón siciliano, bergamota de Calabria y toques de mandarina verde. Ideal para los días soleados y las almas vibrantes.",
+    "price": 89.99,
+    "stock": 41,
+    "images": [
+      "https://hips.hearstapps.com/hmg-prod/images/clear-glass-bottle-with-perfume-is-elegantly-royalty-free-image-1718363887.jpg",
+      "https://www.primor.eu/blog/wp-content/uploads/2023/08/MEJORES-PERF-CITRICOS-MUJER.jpeg"
+    ],
+    "isActive": true,
+    "categoryId": "8ca279a6-ef66-4b5f-be28-4305b1e3933b",
+    "createdAt": "2025-10-08T06:50:13.083Z",
+    "updatedAt": "2025-10-09T01:48:09.994Z",
+    "category": {
+      "id": "8ca279a6-ef66-4b5f-be28-4305b1e3933b",
+      "name": "Familia cítrica",
+      "slug": "citrica",
+      "description": "Perfumes frescos y vibrantes con notas de limón, bergamota, naranja o mandarina. Ideales para el día o climas cálidos.",
+      "imageUrl": "https://abanuc.com/cdn/shop/collections/1872_8.jpg?v=1687771061",
+      "isActive": true,
+      "createdAt": "2025-10-08T06:43:30.206Z",
+      "updatedAt": "2025-10-08T06:47:16.085Z"
+    }
+  }
+]

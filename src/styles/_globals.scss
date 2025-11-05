@@ -1,0 +1,156 @@
+// ========================================
+// DESIGN SYSTEM - ARCHIVO PRINCIPAL
+// ========================================
+
+// Importación en orden de dependencias usando @use
+@use 'utils' as *;
+
+// ========================================
+// RESET Y NORMALIZACIONES
+// ========================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  color-scheme: light;
+  hanging-punctuation: first last;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $bg-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+// ========================================
+// UTILIDADES ADICIONALES
+// ========================================
+
+// Container principal
+.container {
+  @include container;
+}
+
+.container-sm {
+  @include container($breakpoint-value-sm);
+}
+
+.container-md {
+  @include container($breakpoint-value-md);
+}
+
+.container-lg {
+  @include container($breakpoint-value-lg);
+}
+
+// Separadores visuales
+.divider {
+  height: 1px;
+  background: $border-light;
+  margin: $spacing-6 0;
+  
+  &--thick {
+    height: 2px;
+    background: $border-color;
+  }
+  
+  &--vertical {
+    width: 1px;
+    height: auto;
+    margin: 0 $spacing-4;
+    align-self: stretch;
+  }
+}
+
+// Loading states
+.loading {
+  @include loading-shimmer;
+  border-radius: $border-radius;
+  
+  &--text {
+    height: 1em;
+    width: 100%;
+  }
+  
+  &--title {
+    height: 1.5em;
+    width: 60%;
+  }
+  
+  &--avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  &--button {
+    height: 2.5rem;
+    width: 120px;
+  }
+}
+
+// Estados de focus para accesibilidad
+.focus-visible {
+  @include focus-ring;
+}
+
+// Skip link para accesibilidad
+.skip-link {
+  @include visually-hidden;
+  
+  &:focus {
+    position: fixed;
+    top: $spacing-4;
+    left: $spacing-4;
+    z-index: $z-tooltip;
+    padding: $spacing-3 $spacing-4;
+    background: $primary-color;
+    color: $color-white;
+    text-decoration: none;
+    border-radius: $border-radius;
+    font-weight: $font-weight-medium;
+    width: auto;
+    height: auto;
+    clip: auto;
+    overflow: visible;
+  }
+}

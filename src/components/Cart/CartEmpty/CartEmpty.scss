@@ -1,0 +1,64 @@
+@use "@/styles/utils" as *;
+
+.cart-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    text-align: center;
+    background: #fafaff;
+
+    &__content {
+        background: #fff;
+        padding: 3rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        max-width: 420px;
+        width: 90%;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+
+    &__icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 1.8rem;
+        color: #1a1a2e;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-family: $font-tertiary;
+    }
+
+    &__text {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        font-family: $font-tertiary;
+    }
+
+    &__btn {
+        background-color: #ff2d87;
+        color: #fff;
+        border: none;
+        padding: 0.9rem 1.8rem;
+        font-family: $font-tertiary;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #e02677;
+        }
+    }
+}

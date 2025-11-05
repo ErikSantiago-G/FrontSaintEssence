@@ -1,0 +1,439 @@
+// ========================================
+// DESIGN SYSTEM - TIPOGRAFÍA
+// ========================================
+
+@use './variables' as * ;
+@use './breakpoints.mixins' as *;
+
+// ========================================
+// IMPORTACIÓN DE FUENTES
+// ========================================
+
+// Google Fonts Import (estos @import se mantienen porque son URLs externos)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+// ========================================
+// CLASES BASE DE TIPOGRAFÍA
+// ========================================
+
+// Reset tipográfico
+* {
+  font-family: $font-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ========================================
+// HEADINGS (TÍTULOS)
+// ========================================
+
+.heading {
+  font-family: $font-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+  margin: 0 0 $spacing-4 0;
+
+  &--1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-extrabold;
+    line-height: $line-height-tight;
+    
+    @include media-ltmd(){
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &--2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    
+    @include media-ltmd(){
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &--3 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    
+    @include media-ltmd(){
+      font-size: $font-size-xl;
+    }
+  }
+
+  &--4 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+  }
+
+  &--5 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+  }
+
+  &--6 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Alias para headings estándar
+h1, .h1 { @extend .heading, .heading--1; }
+h2, .h2 { @extend .heading, .heading--2; }
+h3, .h3 { @extend .heading, .heading--3; }
+h4, .h4 { @extend .heading, .heading--4; }
+h5, .h5 { @extend .heading, .heading--5; }
+h6, .h6 { @extend .heading, .heading--6; }
+
+// ========================================
+// TEXTO PARA CUERPO (BODY TEXT)
+// ========================================
+
+.text {
+  font-family: $font-secondary;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $text-primary;
+
+  &--xs {
+    font-size: $font-size-xs;
+  }
+
+  &--sm {
+    font-size: $font-size-sm;
+  }
+
+  &--base {
+    font-size: $font-size-base;
+  }
+
+  &--md {
+    font-size: $font-size-md;
+  }
+
+  &--lg {
+    font-size: $font-size-lg;
+  }
+
+  &--xl {
+    font-size: $font-size-xl;
+  }
+
+  // Variantes de peso
+  &--light {
+    font-weight: $font-weight-light;
+  }
+
+  &--regular {
+    font-weight: $font-weight-regular;
+  }
+
+  &--medium {
+    font-weight: $font-weight-medium;
+  }
+
+  &--semibold {
+    font-weight: $font-weight-semibold;
+  }
+
+  &--bold {
+    font-weight: $font-weight-bold;
+  }
+
+  // Variantes de color
+  &--primary {
+    color: $text-primary;
+  }
+
+  &--secondary {
+    color: $text-secondary;
+  }
+
+  &--muted {
+    color: $text-muted;
+  }
+
+  &--light {
+    color: $text-light;
+  }
+
+  &--brand {
+    color: $primary-color;
+  }
+
+  &--accent {
+    color: $accent-color;
+  }
+
+  // Alineación
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--justify {
+    text-align: justify;
+  }
+}
+
+// ========================================
+// PÁRRAFOS
+// ========================================
+
+.paragraph {
+  @extend .text, .text--base;
+  margin: 0 0 $spacing-4 0;
+  line-height: $line-height-relaxed;
+
+  &--lead {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    margin-bottom: $spacing-6;
+  }
+
+  &--small {
+    @extend .text--sm;
+  }
+
+  &--large {
+    @extend .text--lg;
+  }
+}
+
+p, .p {
+  @extend .paragraph;
+}
+
+// ========================================
+// ENLACES
+// ========================================
+
+.link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: $transition-colors;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+
+  &--muted {
+    color: $text-muted;
+
+    &:hover,
+    &:focus {
+      color: $text-primary;
+    }
+  }
+
+  &--accent {
+    color: $accent-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-dark;
+    }
+  }
+
+  &--no-underline {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+a {
+  @extend .link;
+}
+
+// ========================================
+// TEXTO ESPECIALIZADO
+// ========================================
+
+// Código
+.code {
+  font-family: $font-mono;
+  font-size: 0.875em;
+  background-color: $color-gray-100;
+  padding: $spacing-1 $spacing-2;
+  border-radius: $border-radius-sm;
+  color: $color-gray-800;
+}
+
+code {
+  @extend .code;
+}
+
+// Citas
+.quote {
+  font-size: $font-size-lg;
+  font-style: italic;
+  color: $text-secondary;
+  border-left: 4px solid $primary-color;
+  padding-left: $spacing-4;
+  margin: $spacing-6 0;
+}
+
+blockquote {
+  @extend .quote;
+}
+
+// Texto destacado
+.highlight {
+  background-color: rgba($color-pink, 0.1);
+  color: $color-pink;
+  padding: $spacing-1 $spacing-2;
+  border-radius: $border-radius-sm;
+  font-weight: $font-weight-medium;
+}
+
+// ========================================
+// LISTAS
+// ========================================
+
+.list {
+  margin: 0 0 $spacing-4 0;
+  padding-left: $spacing-5;
+
+  &__item {
+    margin-bottom: $spacing-2;
+    line-height: $line-height-relaxed;
+  }
+
+  &--unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &--inline {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: $spacing-4;
+
+    .list__item {
+      margin-bottom: 0;
+    }
+  }
+}
+
+ul, ol {
+  @extend .list;
+
+  li {
+    @extend .list__item;
+  }
+}
+
+// ========================================
+// UTILIDADES DE TEXTO
+// ========================================
+
+// Transformaciones
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+// Decoraciones
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+.text-no-decoration {
+  text-decoration: none;
+}
+
+// Espaciado de letras
+.text-tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.text-tracking-normal {
+  letter-spacing: 0;
+}
+
+.text-tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.text-tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.text-tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+// Overflow
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clip {
+  text-overflow: clip;
+}
+
+// Selección
+.text-select-none {
+  user-select: none;
+}
+
+.text-select-auto {
+  user-select: auto;
+}
+
+// ========================================
+// RESPONSIVO - UTILIDADES DE TIPOGRAFÍA
+// ========================================
+
+@include media-sm(){
+  .text-sm\:xs { font-size: $font-size-xs !important; }
+  .text-sm\:sm { font-size: $font-size-sm !important; }
+  .text-sm\:base { font-size: $font-size-base !important; }
+  .text-sm\:lg { font-size: $font-size-lg !important; }
+}
+
+@include media-md(){
+  .text-md\:sm { font-size: $font-size-sm !important; }
+  .text-md\:base { font-size: $font-size-base !important; }
+  .text-md\:lg { font-size: $font-size-lg !important; }
+  .text-md\:xl { font-size: $font-size-xl !important; }
+}
+
+@include media-lg(){
+  .text-lg\:base { font-size: $font-size-base !important; }
+  .text-lg\:lg { font-size: $font-size-lg !important; }
+  .text-lg\:xl { font-size: $font-size-xl !important; }
+  .text-lg\:2xl { font-size: $font-size-2xl !important; }
+}

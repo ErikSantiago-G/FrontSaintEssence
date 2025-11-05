@@ -1,0 +1,181 @@
+@use "@/styles/utils" as *;
+
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+  .admin-sidebar {
+    font-family: $font-tertiary;
+    width: 260px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    .close-sidebar-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      position: fixed;
+      top: 40px;
+      right: 30px;
+    }
+
+  .sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: #151875;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    padding: 1rem 0;
+    overflow-y: auto;
+  }
+
+  .nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: none;
+    border: none;
+    color: #151875;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9375rem;
+    font-weight: 500;
+
+    &:hover {
+      background-color: #fb2f85;
+      color: white;
+    }
+
+    &.active {
+      background: #fb2f85;
+      color: white;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  .logout-btn {
+    margin: 1rem 1.5rem;
+    padding: 0.75rem;
+    background-color: #fb2f85;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: #fb2f84cd;
+    }
+  }
+}
+
+.admin-content {
+  margin-left: 260px;
+  flex: 1;
+  padding: 2rem;
+  width: calc(100% - 260px);
+}
+
+// Esto es de dashboard hoome
+.dashboard-home {
+  background: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    color: #1e293b;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.125rem;
+    color: #64748b;
+  }
+}
+
+.mobile-toggle-btn{
+  display: none;
+  position: fixed;
+  right: 30px;
+}
+
+@include media-ltlg(){
+  .admin-sidebar {
+    transform: translateX(-100%);
+    &.open {
+      transform: translateX(0);
+    }
+    .close-sidebar-btn {
+      display: block;
+    }
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .admin-content {
+    margin-left: 0;
+
+    .mobile-toggle-btn {
+      display: block;
+    }
+  }
+}
+
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &.active {
+      display: block;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }

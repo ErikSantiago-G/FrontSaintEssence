@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Playwood arm chair",
+    "price": 32.0,
+    "oldPrice": 39.0,
+    "rating": 4.8,
+    "reviewsCount": 22,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.",
+    "details": [
+      "Aliquam dis vulputate integer sagittis.",
+      "Faucibus dis diam arcu, nulla lobortis justo.",
+      "Eu in fringilla vulputate nunc nec.",
+      "Dui, massa viverra."
+    ],
+    "images": [
+      "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761925177/Rectangle_138_kwvben.svg",
+      "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761925142/Rectangle_134_djecmg.svg",
+      "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761925154/Rectangle_136_czcihw.svg",
+      "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761925165/Rectangle_137_cxofxg.svg"
+    ],
+    "colors": ["#000000", "#A020F0", "#FF0000"],
+    "categories": ["Accessories"],
+    "tags": ["Bag", "Black", "Minimal"]
+  }
+]

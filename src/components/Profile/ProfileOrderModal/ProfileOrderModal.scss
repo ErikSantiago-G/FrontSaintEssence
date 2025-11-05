@@ -1,0 +1,94 @@
+
+@use '@/styles/utils' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+.modal {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 0 auto;
+    h2 {
+        margin: 0 0 1.5rem 0;
+        font-size: 1.75rem;
+        color: #1e293b;
+    }
+    h3 {
+        margin: 1.5rem 0 1rem 0;
+        font-size: 1.25rem;
+        color: #1e293b;
+    }
+}
+.order-info {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    .info-group {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        &:last-child {
+            border-bottom: none;
+        }
+        label {
+            font-weight: 600;
+            color: #64748b;
+            font-family: $font-tertiary;
+        }
+        span {
+            color: #1e293b;
+            text-align: right;
+            font-family: $font-tertiary;
+            &.total {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #f72e82;
+            }
+            code {
+                padding: 0.25rem 0.5rem;
+                background: #e2e8f0;
+                border-radius: 0.25rem;
+                font-size: 0.875rem;
+                font-family: monospace;
+            }
+        }
+    }
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    .btn-close {
+        padding: 0.75rem 1.5rem;
+        background-color: #f72e82;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        &:hover {
+            background-color: #fe5f9d;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Ut diam consequat",
+        "color": "Brown",
+        "size": "XL",
+        "price": 32,
+        "quantity": 1,
+        "image": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761879547/Rectangle_34_f5mf95.svg"
+    },
+    {
+        "id": 2,
+        "name": "Vel faucibus posuere",
+        "color": "Brown",
+        "size": "XL",
+        "price": 32,
+        "quantity": 1,
+        "image": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761879547/Rectangle_34_f5mf95.svg"
+    },
+    {
+        "id": 3,
+        "name": "Ac vitae vestibulum",
+        "color": "Brown",
+        "size": "XL",
+        "price": 32,
+        "quantity": 1,
+        "image": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761879547/Rectangle_34_f5mf95.svg"
+    }
+]

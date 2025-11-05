@@ -1,0 +1,44 @@
+@use "@/styles/utils" as *;
+
+.products-page {
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  @include media-xl(){
+    margin-bottom: 10rem;
+  }
+  @include media-ltmd(){
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.products-grid {
+  display: grid;
+  gap: $spacing-6;
+  padding: $spacing-6;
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+  
+  &__title {
+    grid-column: 1 / -1;
+    font-family: $font-tertiary;
+  }
+  
+  @include media-xl(){
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include media-lg(){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-md(){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-sm(){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}

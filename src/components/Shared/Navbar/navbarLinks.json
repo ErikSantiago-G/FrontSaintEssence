@@ -1,0 +1,18 @@
+[
+    {
+        "label": "Inicio",
+        "path": "/"
+    },
+    {
+        "label": "Productos",
+        "path": "/products"
+    },
+    {
+        "label": "Categorías",
+        "path": "/categories"
+    },
+    {
+        "label": "Contacto",
+        "path": "/contact"
+    }
+]

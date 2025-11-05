@@ -1,0 +1,22 @@
+.news-details {
+  min-height: 100vh;
+  padding: 20px;
+  
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  &__title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  &__description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+}

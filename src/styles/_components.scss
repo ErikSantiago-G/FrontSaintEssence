@@ -1,0 +1,173 @@
+// ========================================
+// DESIGN SYSTEM - COMPONENTES GLOBALES
+// ========================================
+
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ========================================
+// BOTONES
+// ========================================
+
+.btn {
+  @include button-base;
+  
+  // Variantes de color
+  &--primary {
+    background: $primary-color;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background: $primary-dark;
+    }
+  }
+  
+  &--secondary {
+    background: $secondary-color;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background: $secondary-dark;
+    }
+  }
+  
+  &--accent {
+    background: $accent-color;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background: $accent-dark;
+    }
+  }
+  
+  &--outline {
+    background: transparent;
+    color: $primary-color;
+    border: $border-width solid $primary-color;
+    
+    &:hover:not(:disabled) {
+      background: $primary-color;
+      color: $color-white;
+    }
+  }
+  
+  &--ghost {
+    background: transparent;
+    color: $primary-color;
+    
+    &:hover:not(:disabled) {
+      background: rgba($primary-color, 0.1);
+    }
+  }
+  
+  &--link {
+    background: transparent;
+    color: $primary-color;
+    padding: 0;
+    text-decoration: underline;
+    
+    &:hover:not(:disabled) {
+      color: $primary-dark;
+    }
+  }
+  
+  // Tamaños
+  &--sm {
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-xs;
+  }
+  
+  &--lg {
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-base;
+  }
+  
+  &--xl {
+    padding: $spacing-5 $spacing-10;
+    font-size: $font-size-md;
+  }
+  
+  // Estados
+  &--loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+  
+  &--full-width {
+    width: 100%;
+  }
+}
+// ========================================
+// UTILIDADES DE ESPACIADO
+// ========================================
+
+// Margins
+.m-0 { margin: $spacing-0 !important; }
+.m-1 { margin: $spacing-1 !important; }
+.m-2 { margin: $spacing-2 !important; }
+.m-3 { margin: $spacing-3 !important; }
+.m-4 { margin: $spacing-4 !important; }
+.m-5 { margin: $spacing-5 !important; }
+.m-6 { margin: $spacing-6 !important; }
+
+.mt-0 { margin-top: $spacing-0 !important; }
+.mt-1 { margin-top: $spacing-1 !important; }
+.mt-2 { margin-top: $spacing-2 !important; }
+.mt-3 { margin-top: $spacing-3 !important; }
+.mt-4 { margin-top: $spacing-4 !important; }
+.mt-5 { margin-top: $spacing-5 !important; }
+.mt-6 { margin-top: $spacing-6 !important; }
+
+.mb-0 { margin-bottom: $spacing-0 !important; }
+.mb-1 { margin-bottom: $spacing-1 !important; }
+.mb-2 { margin-bottom: $spacing-2 !important; }
+.mb-3 { margin-bottom: $spacing-3 !important; }
+.mb-4 { margin-bottom: $spacing-4 !important; }
+.mb-5 { margin-bottom: $spacing-5 !important; }
+.mb-6 { margin-bottom: $spacing-6 !important; }
+
+// Paddings
+.p-0 { padding: $spacing-0 !important; }
+.p-1 { padding: $spacing-1 !important; }
+.p-2 { padding: $spacing-2 !important; }
+.p-3 { padding: $spacing-3 !important; }
+.p-4 { padding: $spacing-4 !important; }
+.p-5 { padding: $spacing-5 !important; }
+.p-6 { padding: $spacing-6 !important; }
+
+// ========================================
+// UTILIDADES DE DISPLAY
+// ========================================
+
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+
+// Flex utilities
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.justify-start { justify-content: flex-start !important; }
+.justify-center { justify-content: center !important; }
+.justify-end { justify-content: flex-end !important; }
+.justify-between { justify-content: space-between !important; }
+.items-start { align-items: flex-start !important; }
+.items-center { align-items: center !important; }
+.items-end { align-items: flex-end !important; }

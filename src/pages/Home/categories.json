@@ -1,0 +1,82 @@
+[
+    {
+        "id": "1",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-1",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "2",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-2",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "3",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-3",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "4",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-4",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "5",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-5",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "6",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-6",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "7",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-7",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "8",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-8",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "9",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-9",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    },
+    {
+        "id": "10",
+        "name": "Mini LCW Chair",
+        "slug": "mini-lcw-chair-10",
+        "description": "Silla de diseño moderno y compacto.",
+        "isActive": true,
+        "imageUrl": "https://res.cloudinary.com/dxspvj1rj/image/upload/v1761943080/image_20_vikzsd.svg"
+    }
+]

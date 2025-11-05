@@ -1,0 +1,112 @@
+@use '@/styles/utils' as *;
+
+.cart-item {
+  &__product {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__remove {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: .1rem;
+  }
+
+  &__price {
+    color: #15245E;
+    font-family: $font-tertiary;
+    font-size: 14px;
+  }
+
+  &__image {
+    width: 90px;
+    height: 90px;
+    border-radius: 3px;
+    object-fit: cover;
+  }
+
+  &__details {
+    h3 {
+      color: #0d0e43;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      font-family: $font-tertiary;
+    }
+    p {
+      font-family: $font-tertiary;
+      color: #8a8fb9;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+  }
+
+  &__qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: #f0eff2;
+    border-radius: 4px;
+    width: max-content;
+    color: #BEBFC2;
+    font-family: $font-tertiary;
+    font-size: 12px;
+
+    button {
+      background-color: #e7e7f0;
+      border: none;
+      color: #BEBFC2;
+      padding: 0.3rem 0.3rem;
+      cursor: pointer;
+    }
+
+    span {
+      min-width: 20px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-item {
+    &__product {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    &__image {
+      width: 70px;
+      height: 70px;
+    }
+
+    &__details {
+      h3 {
+        font-size: 0.9rem;
+      }
+      p {
+        font-size: 0.75rem;
+      }
+    }
+
+    &__qty-control {
+      gap: 0.4rem;
+      button {
+        padding: 0.25rem;
+      }
+      span {
+        font-size: 0.9rem;
+      }
+    }
+
+    &__price,
+    &__total {
+      font-size: 0.85rem;
+    }
+  }
+}

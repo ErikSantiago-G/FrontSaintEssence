@@ -1,0 +1,132 @@
+@use '@/styles/utils' as *;
+
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.8rem 1rem;
+    font-family: "Poppins", sans-serif;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    &__logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #0d0e43;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #fb2e86;
+        }
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+            text-decoration: none;
+            color: #0d0e43;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: #fb2e86;
+            }
+        }
+
+        &--open {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__item--active a {
+        color: #fb2e86;
+        font-weight: 600;
+    }
+
+    &__icons {
+        display: flex;
+        gap: 1.2rem;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        .navbar__icon {
+            color: #0d0e43;
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #fb2e86;
+            }
+        }
+    }
+
+    &__toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #0d0e43;
+        cursor: pointer;
+        z-index: 200;
+    }
+
+    @include media-ltlg() {
+        &__toggle {
+            display: block;
+        }
+
+        &__links {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            gap: 1.2rem;
+
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+
+            &--open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @include media-xs() {
+        &__logo {
+            font-size: 1.5rem;
+        }
+    }
+}

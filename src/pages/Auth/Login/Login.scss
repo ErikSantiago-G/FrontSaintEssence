@@ -1,0 +1,157 @@
+@use "@/styles/utils" as *;
+
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6f5ff;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+
+  &__container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    padding: 3rem 2.5rem;
+    max-width: 544px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+    font-family: $font-tertiary;
+  }
+
+  &__subtitle {
+    color: #9096b2;
+    font-size: 1rem;
+    font-family: $font-secondary;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__field {
+    input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #c2c5e1;
+      border-radius: 2px;
+      font-size: 1rem;
+      color: #0d0e43;
+      transition: border-color 0.2s ease;
+
+      &::placeholder {
+        font-family: $font-secondary;
+        color: #9096b2;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #fb2e86;
+      }
+    }
+  }
+
+  &__forgot {
+    text-align: left;
+    display: block;
+    color: #8a8fb9;
+    font-size: 17px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    margin-top: -0.5rem;
+    font-family: $font-secondary;
+
+    &:hover {
+      color: #fb2e86;
+    }
+  }
+
+  &__button {
+    background-color: #fb2e86;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+    font-family: $font-secondary;
+
+    &:hover {
+      background: #e12176;
+    }
+  }
+
+  &__register {
+    margin-top: 2rem;
+    color: #8a8fb9;
+    font-size: 0.95rem;
+    font-family: $font-secondary;
+
+    &-link {
+      margin-left: 0.25rem;
+      color: #fb2e86;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      font-family: $font-secondary;
+
+      &:hover {
+        color: #e12176;
+      }
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+.login__password-field {
+  position: relative;
+
+  input {
+    width: 100%;
+    padding-right: 2.5rem;
+  }
+
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9096b2;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #fb2e86;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@use "@/styles/utils" as *;
+
+.checkout-cancel {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(145deg, #f6f7fb 0%, #ffffff 100%);
+  font-family: $font-tertiary;
+  animation: fadeIn 0.6s ease-in-out;
+
+  &__card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    font-family: $font-tertiary;
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__icon {
+    color: #fb2f85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    animation: popIn 0.4s ease-in-out;
+
+    svg {
+      stroke-width: 1.5;
+      animation: shake 1.5s infinite ease-in-out;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.75rem;
+    font-family: $font-tertiary;
+  }
+
+  &__description {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+    font-family: $font-tertiary;
+    margin-bottom: 2rem;
+  }
+
+  &__button {
+    display: inline-block;
+    background-color: #fb2f85;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+
+    &:hover {
+      background-color: #fe5f9d;
+      box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+      transform: scale(1.03);
+    }
+  }
+}
+
+/* Animaciones suaves */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}

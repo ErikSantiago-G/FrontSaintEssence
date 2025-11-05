@@ -1,0 +1,54 @@
+@use "@/styles/utils" as *;
+
+.product-gallery {
+  display: flex;
+  gap: 1.5rem;
+
+  @include media-ltlg() {
+    flex-direction: column-reverse;
+  }
+
+  &__thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    @include media-ltlg() {
+      flex-direction: row;
+    }
+
+    button {
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    img {
+      width: 155px;
+      height: 155px;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      transition: 0.2s;
+
+      &.active,
+      &:hover {
+        border-color: #fb2f85;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+      width: 375px;
+      height: 487px;
+      border-radius: 3px;
+      object-fit: cover;
+    }
+  }
+}

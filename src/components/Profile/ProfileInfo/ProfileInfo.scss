@@ -1,0 +1,27 @@
+
+.profile-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background-color: #fb2f84cd;
+    color: white;
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+    }
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,34 @@
+@use '@/styles/utils' as *;
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  
+  h3 {
+    font-family: $font-tertiary;
+    color: #151875;
+    font-size: 42px;
+  }
+
+  &__container {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    
+    @include media-md() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include media-lg() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    @include media-xl() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
