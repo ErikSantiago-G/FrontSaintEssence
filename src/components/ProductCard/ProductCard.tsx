@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <figure className="product-card__image">
         {!error ? (
           <img
-            src={product.image}
+            src={product.image!}
             alt={product.name}
             loading="lazy"
             onLoad={() => setLoaded(true)}
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h5 className="product-card__title heading--5">{product.name}</h5>
 
         <ul className="product-card__colors">
-          {product.colors.map((color, index) => (
+          {product.colors?.map((color, index) => (
             <li
               key={index}
               className="color"
