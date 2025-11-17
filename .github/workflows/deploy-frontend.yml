@@ -3,7 +3,7 @@ name: Deploy Frontend to AWS VPS
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -19,14 +19,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Copy files to VPS
+      - name: Copy Vite build to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          source: ".next/**,public/**,package.json,next.config.js"
-          target: "/tmp/frontend"
+          source: "dist/**"
+          target: "/tmp/saint_Front"
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.0.3
@@ -35,15 +35,11 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           script: |
-            # Crear carpeta destino si no existe
-            sudo mkdir -p /var/www/saint_front
+            sudo mkdir -p /var/www/saint_Front
 
-            # Copiar archivos finales a la carpeta definitiva
-            sudo rm -rf /var/www/saint_front/*
-            sudo cp -r /tmp/frontend/. /var/www/saint_front/
+            sudo rm -rf /var/www/saint_Front/*
+            sudo cp -r /tmp/saint_Front/. /var/www/saint_Front/
 
-            # Permisos correctos
-            sudo chown -R www-data:www-data /var/www/saint_front
+            sudo chown -R www-data:www-data /var/www/saint_Front
 
-            # Recargar NGINX
             sudo systemctl reload nginx
