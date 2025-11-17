@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           source: "dist/**"
-          target: "/tmp/saint_Front"
+          target: "/tmp/saint_front"
 
       - name: Deploy on server
         uses: appleboy/ssh-action@v1.0.3
@@ -35,11 +35,11 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           script: |
-            sudo mkdir -p /var/www/saint_Front
+            sudo mkdir -p /var/www/saint_front
 
-            sudo rm -rf /var/www/saint_Front/*
-            sudo cp -r /tmp/saint_Front/. /var/www/saint_Front/
+            sudo rm -rf /var/www/saint_front/*
+            sudo cp -r /tmp/saint_front/. /var/www/saint_front/
 
-            sudo chown -R www-data:www-data /var/www/saint_Front
+            sudo chown -R www-data:www-data /var/www/saint_front
 
             sudo systemctl reload nginx
