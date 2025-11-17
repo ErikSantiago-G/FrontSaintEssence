@@ -13,14 +13,16 @@ import { CheckboxField } from '../../../components/Admin/Shared/CheckboxField';
 import { useProductStore } from '../../../store/useProductStore';
 import { useCategoryStore } from '../../../store/useCategoryStore';
 import '../AdminStyles.scss';
+import { Pagination } from '../../../components/Shared/Pagination/Pagination';
 
 export default function AdminProducts() {
-  const { products, fetchProducts, loading: productsLoading } = useProductStore();
+  const { products, fetchProducts, loading: productsLoading, meta } = useProductStore();
   const { categories, fetchCategories, loading: categoriesLoading } = useCategoryStore();
 
   const [showModal, setShowModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [page, setPage] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
     slug: '',
@@ -33,9 +35,9 @@ export default function AdminProducts() {
   });
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(page);
     fetchCategories();
-  }, []);
+  }, [page]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -264,6 +266,8 @@ export default function AdminProducts() {
           </div>
         </div>
       )}
+
+        <Pagination totalPages={meta.totalPages} onPageChange={setPage} currentPage={page} />
     </section>
   );
 }
