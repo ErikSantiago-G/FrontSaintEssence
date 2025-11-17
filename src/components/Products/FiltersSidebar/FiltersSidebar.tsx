@@ -4,7 +4,11 @@ import { useCategoryStore } from "../../../store/useCategoryStore";
 import { Check, Filter } from "lucide-react";
 import "./FiltersSidebar.scss";
 
-export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ onFilterChange }) => {
+export const FiltersSidebar: React.FC<FilterSidebarProps> = ({
+  onFilterChange,
+  externalSelectedCategory
+}) => {
+
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [priceRange, setPriceRange] = useState<PriceRange>({ min: 0, max: 0 });
   const [onlyInactive, setOnlyInactive] = useState(false);
@@ -13,7 +17,13 @@ export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ onFilterChange })
 
   useEffect(() => {
     fetchCategories();
-  }, [fetchCategories]);
+  }, []);
+
+  useEffect(() => {
+    if (externalSelectedCategory !== undefined) {
+      setSelectedCategory(externalSelectedCategory || null);
+    }
+  }, [externalSelectedCategory]);
 
   const emitFilters = (
     newCategory?: string | null,
@@ -27,12 +37,13 @@ export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ onFilterChange })
       isActive: newInactive === undefined ? undefined : !newInactive,
     });
   };
+
   const handleCategoryClick = (categoryId: string) => {
     const newCategory = selectedCategory === categoryId ? null : categoryId;
     setSelectedCategory(newCategory);
-
     emitFilters(newCategory, priceRange, onlyInactive);
   };
+
   const handlePriceChange = (field: "min" | "max", value: number) => {
     const newRange = { ...priceRange, [field]: value };
     setPriceRange(newRange);

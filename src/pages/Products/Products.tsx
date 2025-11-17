@@ -22,7 +22,15 @@ const Products: React.FC = () => {
   const [filters, setFilters] = useState<BackendFilters>({});
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { products, loading: loadingProducts, fetchProducts, meta } = useProductStore();
+  const {
+    products,
+    loading: loadingProducts,
+    fetchProducts,
+    meta,
+    selectedCategory,
+    setSelectedCategory
+  } = useProductStore();
+
   const { loading: loadingCategories } = useCategoryStore();
   const { toast, showToast, hideToast } = useToast();
 
@@ -34,7 +42,19 @@ const Products: React.FC = () => {
 
   useEffect(() => {
     fetchProducts(currentPage, filters);
-  }, [currentPage, fetchProducts, filters]);
+  }, [currentPage, filters]);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      setFilters((prev) => ({
+        ...prev,
+        categoryId: selectedCategory,
+      }));
+
+      setCurrentPage(1);
+      setSelectedCategory(null);
+    }
+  }, [selectedCategory]);
 
   const handleFilterChange = (newFilters: BackendFilters) => {
     setFilters(newFilters);
@@ -46,11 +66,12 @@ const Products: React.FC = () => {
   return (
     <section className="products-page">
       <aside className="filters">
-        <FiltersSidebar onFilterChange={handleFilterChange} />
+        <FiltersSidebar onFilterChange={handleFilterChange} externalSelectedCategory={filters.categoryId} />
       </aside>
 
       <section className="products-grid">
         <h1 className="products-grid__title">Nuestros productos</h1>
+
         {products.length > 0 ? (
           products.map((item) => (
             <ProductCard

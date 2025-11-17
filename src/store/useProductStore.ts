@@ -7,6 +7,9 @@ export const useProductStore = create<ProductState>((set) => ({
   product: null,
   loading: false,
   meta: { total: 0, page: 1, limit: 12, totalPages: 1 },
+  selectedCategory: null,
+
+  setSelectedCategory: (id) => set({ selectedCategory: id }),
 
   fetchProducts: async (page: number = 1, filters: ProductFilters = {}) => {
     set({ loading: true });

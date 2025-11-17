@@ -11,7 +11,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, onViewShop }) => 
                         className="category-card__button"
                         onClick={() => onViewShop?.(id)}
                     >
-                        View Shop
+                        Ver
                     </button>
             </figure>
             <section className="category-card__info">

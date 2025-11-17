@@ -10,6 +10,7 @@ export interface BackendFilters {
 export interface FilterSidebarProps {
   products?: Product[];
    onFilterChange: (filters: BackendFilters) => void;
+   externalSelectedCategory?: string | null;
 }
 
 export interface PriceRange {
