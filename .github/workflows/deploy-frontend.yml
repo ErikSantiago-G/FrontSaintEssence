@@ -1,0 +1,49 @@
+name: Deploy Frontend to AWS VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Copy files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
+          source: ".next/**,public/**,package.json,next.config.js"
+          target: "/tmp/frontend"
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
+          script: |
+            # Crear carpeta destino si no existe
+            sudo mkdir -p /var/www/saint_front
+
+            # Copiar archivos finales a la carpeta definitiva
+            sudo rm -rf /var/www/saint_front/*
+            sudo cp -r /tmp/frontend/. /var/www/saint_front/
+
+            # Permisos correctos
+            sudo chown -R www-data:www-data /var/www/saint_front
+
+            # Recargar NGINX
+            sudo systemctl reload nginx
