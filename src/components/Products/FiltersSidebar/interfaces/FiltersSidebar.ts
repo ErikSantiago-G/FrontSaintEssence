@@ -1,8 +1,15 @@
 import { Product } from "../../../../api/types/product";
 
+export interface BackendFilters {
+  categoryId?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  isActive?: boolean;
+}
+
 export interface FilterSidebarProps {
-  products: Product[];
-  onFilterChange: (filtered: Product[]) => void;
+  products?: Product[];
+   onFilterChange: (filters: BackendFilters) => void;
 }
 
 export interface PriceRange {

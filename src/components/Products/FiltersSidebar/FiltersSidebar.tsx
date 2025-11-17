@@ -1,73 +1,48 @@
 import { useEffect, useState } from "react";
-import { Filters, FilterSidebarProps, PriceRange } from "./interfaces/FiltersSidebar";
+import { FilterSidebarProps, PriceRange } from "./interfaces/FiltersSidebar";
 import { useCategoryStore } from "../../../store/useCategoryStore";
 import { Check, Filter } from "lucide-react";
-import type { Product } from "../../../api/types/product";
 import "./FiltersSidebar.scss";
 
-export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ products, onFilterChange }) => {
+export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ onFilterChange }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [priceRange, setPriceRange] = useState<PriceRange>({ min: 0, max: 0 });
   const [onlyInactive, setOnlyInactive] = useState(false);
+
   const { categories, fetchCategories } = useCategoryStore();
 
   useEffect(() => {
     fetchCategories();
   }, [fetchCategories]);
 
-  const applyFilters = (filters: Filters = {
-    category: selectedCategory,
-    priceRange,
-    onlyInactive,
-  }) => {
-    const { category, priceRange: range, onlyInactive: inactive } = filters;
-    let filtered = [...products];
-
-    const filterRules = {
-      category: (product: Product): boolean =>
-        !category ||
-        product.category?.name?.toLowerCase() === category.toLowerCase(),
-
-      price: (product: Product): boolean => {
-        const price = product.price ?? 0;
-        const meetsMin = range.min > 0 ? price >= range.min : true;
-        const meetsMax = range.max > 0 ? price <= range.max : true;
-        return meetsMin && meetsMax;
-      },
-
-      inactive: (product: Product): boolean =>
-        !inactive || product.active === false,
-    };
-
-    filtered = filtered.filter(
-      (product) =>
-        filterRules.category(product) &&
-        filterRules.price(product) &&
-        filterRules.inactive(product)
-    );
-
-    onFilterChange(filtered);
+  const emitFilters = (
+    newCategory?: string | null,
+    newPriceRange?: PriceRange,
+    newInactive?: boolean
+  ) => {
+    onFilterChange({
+      categoryId: newCategory || undefined,
+      minPrice: newPriceRange?.min && newPriceRange.min > 0 ? newPriceRange.min : undefined,
+      maxPrice: newPriceRange?.max && newPriceRange.max > 0 ? newPriceRange.max : undefined,
+      isActive: newInactive === undefined ? undefined : !newInactive,
+    });
   };
-
-  const handleCategoryClick = (category: string) => {
-    const newCategory = selectedCategory === category ? null : category;
-    const newFilters: Filters = { category: newCategory, priceRange, onlyInactive };
+  const handleCategoryClick = (categoryId: string) => {
+    const newCategory = selectedCategory === categoryId ? null : categoryId;
     setSelectedCategory(newCategory);
-    applyFilters(newFilters);
-  };
 
+    emitFilters(newCategory, priceRange, onlyInactive);
+  };
   const handlePriceChange = (field: "min" | "max", value: number) => {
-    const updatedRange: PriceRange = { ...priceRange, [field]: value };
-    const newFilters: Filters = { category: selectedCategory, priceRange: updatedRange, onlyInactive };
-    setPriceRange(updatedRange);
-    applyFilters(newFilters);
+    const newRange = { ...priceRange, [field]: value };
+    setPriceRange(newRange);
+    emitFilters(undefined, newRange);
   };
 
   const handleInactiveToggle = () => {
     const newInactive = !onlyInactive;
-    const newFilters: Filters = { category: selectedCategory, priceRange, onlyInactive: newInactive };
     setOnlyInactive(newInactive);
-    applyFilters(newFilters);
+    emitFilters(undefined, undefined, newInactive);
   };
 
   return (
@@ -83,13 +58,11 @@ export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ products, onFilte
           {categories.map((category) => (
             <li
               key={category.id ?? category.name}
-              className={`filter-item ${selectedCategory === category.name ? "active" : ""}`}
-              onClick={() => handleCategoryClick(category.name)}
+              className={`filter-item ${selectedCategory === category.id ? "active" : ""}`}
+              onClick={() => handleCategoryClick(category.id!)}
             >
               <span>{category.name}</span>
-              {selectedCategory === category.name && (
-                <Check className="icon-check" size={16} />
-              )}
+              {selectedCategory === category.id && <Check className="icon-check" size={16} />}
             </li>
           ))}
         </ul>
@@ -99,7 +72,6 @@ export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ products, onFilte
         <h4>Precio</h4>
         <article className="price-range">
           <input
-            name="min"
             type="number"
             placeholder="Mín"
             value={priceRange.min || ""}
@@ -107,7 +79,6 @@ export const FiltersSidebar: React.FC<FilterSidebarProps> = ({ products, onFilte
           />
           <span className="price-range__divider">—</span>
           <input
-            name="max"
             type="number"
             placeholder="Máx"
             value={priceRange.max || ""}

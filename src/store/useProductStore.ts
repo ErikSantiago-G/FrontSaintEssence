@@ -1,17 +1,18 @@
 import { create } from "zustand";
-import { ProductService } from "../api/productService";
+import { ProductService, ProductFilters } from "../api/productService";
 import { ProductState } from "./types/ProductState";
 
 export const useProductStore = create<ProductState>((set) => ({
   products: [],
   product: null,
   loading: false,
+  meta: { total: 0, page: 1, limit: 12, totalPages: 1 },
 
-  fetchProducts: async () => {
+  fetchProducts: async (page: number = 1, filters: ProductFilters = {}) => {
     set({ loading: true });
     try {
-      const { data } = await ProductService.getAll();
-      set({ products: data.data });
+      const { data } = await ProductService.getAll({ ...filters, page });
+      set({ products: data.data, meta: data.meta });
     } finally {
       set({ loading: false });
     }
