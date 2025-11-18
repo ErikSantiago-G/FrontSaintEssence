@@ -5,6 +5,7 @@ import { useBannerStore } from "../../../store/useBannerStore";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./HeroCarousel.scss";
+import { useNavigate } from "react-router-dom";
 
 export const HeroCarousel: React.FC = () => {
   const { banners, loading, fetchBanners } = useBannerStore();
@@ -19,7 +20,7 @@ export const HeroCarousel: React.FC = () => {
   };
 
   const sortedBanners = [...banners].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-
+  const navigate = useNavigate();
   return (
     <Swiper
       modules={[Autoplay, Pagination, A11y]}
@@ -39,7 +40,7 @@ export const HeroCarousel: React.FC = () => {
           <SwiperSlide key={banner.id}>
             <figure
               className="hero-carousel__slide"
-              onClick={() => banner.linkUrl && window.open(banner.linkUrl, "_blank")}
+              onClick={() => navigate(banner.linkUrl!)}
               style={{ cursor: banner.linkUrl ? "pointer" : "default" }}
             >
               {!loadedImages[banner.id] && (

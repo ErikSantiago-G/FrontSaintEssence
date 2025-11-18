@@ -18,10 +18,10 @@ export default function AdminDashboard() {
   return (
     <section className="admin-dashboard">
       {/* Sidebar Overlay para mobile */}
-      <div
+      <section
         className={`sidebar-overlay ${sidebarOpen ? "active" : ""}`}
         onClick={toggleSidebar}
-      ></div>
+      ></section>
 
       <aside className={`admin-sidebar ${sidebarOpen ? "open" : ""}`}>
         <header className="sidebar-header">

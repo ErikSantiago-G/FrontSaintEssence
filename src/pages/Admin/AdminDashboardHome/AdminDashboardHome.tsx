@@ -11,7 +11,7 @@ import './AdminDashboardHome.scss';
 import { useNavigate } from 'react-router-dom';
 
 export const AdminDashboardHome = () => {
-  const { products, fetchProducts } = useProductStore();
+  const { products, fetchProducts, meta } = useProductStore();
   const { categories, fetchCategories } = useCategoryStore();
   const { orders, fetchOrders } = useOrderStore();
   const { banners, fetchBanners } = useBannerStore();
@@ -29,7 +29,7 @@ export const AdminDashboardHome = () => {
   }, [fetchProducts, fetchCategories, fetchOrders, fetchBanners, fetchNews, fetchSections]);
 
   const stats = {
-    products: products.length,
+    products: meta.total,
     categories: categories.length,
     orders: orders.length,
     banners: banners.length,

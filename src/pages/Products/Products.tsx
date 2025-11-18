@@ -8,14 +8,8 @@ import FullScreenSpinner from "../../components/FullScreenSpinner/FullScreenSpin
 import { ToastMessage } from "../../components/Shared/ToastMessage/ToastMessage";
 import { useToast } from "../../hooks/useToast";
 import type { Product } from "../../api/types/product";
+import { BackendFilters } from "./interfaces/BackendFilters";
 import "./Products.scss";
-
-interface BackendFilters {
-  categoryId?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  isActive?: boolean;
-}
 
 const Products: React.FC = () => {
   const [cartItems, setCartItems] = useState<string[]>([]);

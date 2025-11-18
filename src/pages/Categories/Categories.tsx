@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useCategoryStore } from '../../store/useCategoryStore';
 import { Category } from '../../api/types/category';
-import CategoryCard from '../../components/Category/CategoryCard/CategoryCard';
-import './Categories.scss';
 import { useNavigate } from 'react-router-dom';
 import { useProductStore } from '../../store/useProductStore';
+import CategoryCard from '../../components/Category/CategoryCard/CategoryCard';
+import './Categories.scss';
 
 const Categories: React.FC = () => {
   const { categories: categoriesResponse, fetchCategories } = useCategoryStore();
