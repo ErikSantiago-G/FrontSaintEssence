@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
       </section>
 
       <section className="footer__bottom">
-        <p>©Webecy - All Rights Reserved</p>
+        <p>Sanz - Todos los derechos reservados.</p>
       </section>
     </footer>
   );
