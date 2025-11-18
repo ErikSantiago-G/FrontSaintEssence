@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./TopCategories.scss";
 
-const TopCategories: React.FC<{ onViewShop: (catId: string) => void }> = ({ onViewShop }) => {
+const TopCategories: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const navigate = useNavigate();
 
@@ -46,11 +46,10 @@ const TopCategories: React.FC<{ onViewShop: (catId: string) => void }> = ({ onVi
           1280: { slidesPerView: 4 },
         }}
       >
-        {categories?.map((cat) => (
-          <SwiperSlide key={cat.id}>
+        {categories?.map((category) => (
+          <SwiperSlide key={category.id}>
             <CategoryCard
-              category={cat}
-              onViewShop={onViewShop}
+              category={category}
               variant="minimal"
             />
           </SwiperSlide>
