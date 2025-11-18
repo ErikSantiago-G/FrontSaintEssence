@@ -21,7 +21,6 @@ const TopCategories: React.FC = () => {
 
   const loadCategories = async () => {
     const { data } = await CategoryService.getAll();
-    console.log(data)
     setCategories(data);
   };
 

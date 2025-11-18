@@ -1,10 +1,14 @@
-import { Product } from '../../../api/types/product';
-import productsData from './featuredProducts.json';
 import ProductCard from '../ProductCard';
+import { useEffect } from 'react';
+import { useProductStore } from '../../../store/useProductStore';
 import './FeaturedProducts.scss';
 
 const Products: React.FC = () => {
-  const products: Product[] = productsData;
+  const { products, fetchFeatured } = useProductStore();
+
+  useEffect(() => {
+    fetchFeatured();
+  }, []);
 
   return (
     <section className="featured-products__grid">

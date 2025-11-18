@@ -15,6 +15,7 @@ export interface ProductState {
   selectedCategory: string | null;
   setSelectedCategory: (id: string | null) => void;
   fetchProducts: (page?: number, filters?: ProductQuery) => Promise<void>;
+  fetchFeatured: () => Promise<void>;
   fetchProductById: (id: string) => Promise<void>;
   fetchProductBySlug: (slug: string) => Promise<void>;
 }

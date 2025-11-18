@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import { ProductService, ProductFilters } from "../api/productService";
+import { ProductService } from "../api/productService";
 import { ProductState } from "./types/ProductState";
+import { ProductFilters } from "../api/types/ProductFilters";
 
 export const useProductStore = create<ProductState>((set) => ({
   products: [],
@@ -16,6 +17,19 @@ export const useProductStore = create<ProductState>((set) => ({
     try {
       const { data } = await ProductService.getAll({ ...filters, page });
       set({ products: data.data, meta: data.meta });
+    } finally {
+      set({ loading: false });
+    }
+  },
+
+  fetchFeatured: async () => {
+    set({ loading: true });
+    try {
+      const { data } = await ProductService.getFeatured();
+
+      const featured = Array.isArray(data.data) ? data.data : [];
+
+      set({ products: featured });
     } finally {
       set({ loading: false });
     }

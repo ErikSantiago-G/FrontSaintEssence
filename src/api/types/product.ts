@@ -12,6 +12,7 @@ export interface Product {
   categoryId?: string;
   category?: Category
   active?: boolean;
+  isFeatured?: boolean;
 }
 
 export interface ProductQuery {

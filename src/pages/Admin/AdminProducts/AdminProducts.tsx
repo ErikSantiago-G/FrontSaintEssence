@@ -32,6 +32,7 @@ export default function AdminProducts() {
     images: [''],
     categoryId: '',
     isActive: true,
+    isFeatured: false,
   });
 
   useEffect(() => {
@@ -81,6 +82,7 @@ export default function AdminProducts() {
         images: product.images.length > 0 ? product.images : [''],
         categoryId: product.categoryId!,
         isActive: product.isActive!,
+        isFeatured: product.isFeatured || false,
       });
     } else {
       setEditingProduct(null);
@@ -93,6 +95,7 @@ export default function AdminProducts() {
         images: [''],
         categoryId: '',
         isActive: true,
+        isFeatured: false,
       });
     }
     setShowModal(true);
@@ -252,6 +255,12 @@ export default function AdminProducts() {
                 checked={formData.isActive}
                 onChange={(checked) => setFormData({ ...formData, isActive: checked })}
                 label="Activo"
+              />
+
+              <CheckboxField
+                checked={formData.isFeatured}
+                onChange={(checked) => setFormData({ ...formData, isFeatured: checked })}
+                label="Featured"
               />
 
               <section className="modal-actions">
