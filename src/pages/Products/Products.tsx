@@ -9,10 +9,10 @@ import { ToastMessage } from "../../components/Shared/ToastMessage/ToastMessage"
 import { useToast } from "../../hooks/useToast";
 import type { Product } from "../../api/types/product";
 import { BackendFilters } from "./interfaces/BackendFilters";
+import { useCartStore } from "../../store/useCartStore";
 import "./Products.scss";
 
 const Products: React.FC = () => {
-  const [cartItems, setCartItems] = useState<string[]>([]);
   const [filters, setFilters] = useState<BackendFilters>({});
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -27,10 +27,17 @@ const Products: React.FC = () => {
 
   const { loading: loadingCategories } = useCategoryStore();
   const { toast, showToast, hideToast } = useToast();
+  const { cart, addItem } = useCartStore();
 
-  const handleAddToCart = (product: Product) => {
-    if (cartItems.includes(product.id!)) return;
-    setCartItems((prev) => [...prev, product.id!]);
+  const handleAddToCart = async (product: Product) => {
+
+    if (cart?.items?.some((i) => i.productId === product.id)) {
+      showToast("El producto ya está en el carrito", "error");
+      return;
+    }
+
+    await addItem(product.id!, 1);
+
     showToast(`${product.name} agregado al carrito`, "success");
   };
 
@@ -71,7 +78,7 @@ const Products: React.FC = () => {
             <ProductCard
               key={item.id}
               onAddToCart={() => handleAddToCart(item)}
-              addedToCart={cartItems.includes(item.id!)}
+              addedToCart={cart?.items?.some((i) => i.productId === item.id) || false}
               product={item}
             />
           ))

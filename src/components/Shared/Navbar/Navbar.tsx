@@ -3,13 +3,14 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Menu, ShoppingCart, User, X } from "lucide-react";
 import linksData from "./navbarLinks.json";
 import "./Navbar.scss";
+import { useCartStore } from "../../../store/useCartStore";
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const location = useLocation();
-
+  const { cart } = useCartStore();
   const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
@@ -59,9 +60,8 @@ const Navbar: React.FC = () => {
           {linksData.map(({ label, path }) => (
             <li
               key={path}
-              className={`navbar__item ${
-                location.pathname === path ? "navbar__item--active" : ""
-              }`}
+              className={`navbar__item ${location.pathname === path ? "navbar__item--active" : ""
+                }`}
             >
               <NavLink to={path}>{label}</NavLink>
             </li>
@@ -70,7 +70,12 @@ const Navbar: React.FC = () => {
 
         <ul className="navbar__icons">
           <li><NavLink to="/login"><User size={20} className="navbar__icon" /></NavLink></li>
-          <li><NavLink to="/cart"><ShoppingCart size={20} className="navbar__icon" /></NavLink></li>
+          <li className="navbar__cart-wrapper">
+            <NavLink to="/cart" className="navbar__cart-link">
+              <ShoppingCart size={20} className="navbar__icon" />
+              {cart?.items?.length! > 0 && <span className="navbar__cart-dot" />}
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

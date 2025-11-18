@@ -1,16 +1,10 @@
-import type { ProductCardProps } from "./interfaces/ProductCard";
+import type { ProductCardPropsExtends } from "./interfaces/ProductCard";
 import { useState } from "react";
 import { ImageOff, ShoppingCart, Check } from "lucide-react";
-import "./ProductCard.scss";
 import { useNavigate } from "react-router-dom";
+import "./ProductCard.scss";
 
-interface Props extends ProductCardProps {
-  onAddToCart?: () => void;
-  addedToCart?: boolean;
-  noIcons?: boolean;
-}
-
-const ProductCard: React.FC<Props> = ({ product, onAddToCart, addedToCart, noIcons }) => {
+const ProductCard: React.FC<ProductCardPropsExtends> = ({ product, onAddToCart, addedToCart, noIcons }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
