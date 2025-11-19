@@ -7,6 +7,7 @@ import "./Login.scss";
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const { login } = useAuthStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,8 +20,8 @@ const Login: React.FC = () => {
     
     try {
       await login(formData.email, formData.password);
-    } catch (error){
-      console.error(error);
+    } catch (error: unknown) {
+      setErrorMessage(error instanceof Error ? error.message : String(error));
     }
   };
 
@@ -32,7 +33,7 @@ const Login: React.FC = () => {
         </h1>
         <p className="login__subtitle">Porfavor, inicie sesión</p>
 
-        <form className="login__form">
+        <form className="login__form" onSubmit={handleSubmit}>
           <section className="login__field">
             <label htmlFor="email" className="sr-only">Correo electrónico</label>
             <input
@@ -69,7 +70,9 @@ const Login: React.FC = () => {
 
           <Link to="/forgot-password" className="login__forgot">¿Olvidaste tu contraseña?</Link>
 
-          <button type="button" onClick={handleSubmit} className="login__button">Iniciar sesión</button>
+          {errorMessage && <p className="login__error">{errorMessage}</p>}
+          
+          <button type="submit" className="login__button">Iniciar sesión</button>
 
           <p className="login__register">
             ¿No tienes una cuenta?

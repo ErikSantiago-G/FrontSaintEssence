@@ -7,13 +7,14 @@ const Register: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string[] | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,7 +25,7 @@ const Register: React.FC = () => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Las contraseñas no coinciden");
+      setError(["Las contraseñas no coinciden"]);
       return;
     }
 
@@ -65,28 +66,39 @@ const Register: React.FC = () => {
         <h1 id="register-title" className="register__title">Registro</h1>
         <p className="register__subtitle">Por favor, llena los campos.</p>
 
-        <form className="register__form" onSubmit={handleSubmit} noValidate>
-          <div className="register__field">
-            <label htmlFor="name" className="sr-only">Nombre completo</label>
-            <input id="name" name="name" type="text" placeholder="Nombre completo" value={formData.name} onChange={handleChange} required />
-          </div>
+        <form className="register__form" onSubmit={handleSubmit}>
+          <section className="register__field">
+            <label htmlFor="name" className="sr-only">Nombres</label>
+            <input id="name" name="name" type="text" placeholder="Nombres completo" value={formData.name} onChange={handleChange} required />
+          </section>
 
-          <div className="register__field">
+          <section className="register__field">
+            <label htmlFor="lastName" className="sr-only">Apellidos</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Apellidos completo" value={formData.lastName} onChange={handleChange} required />
+          </section>
+
+          <section className="register__field">
             <label htmlFor="email" className="sr-only">Correo electrónico</label>
             <input id="email" name="email" type="email" placeholder="Correo electrónico" value={formData.email} onChange={handleChange} required />
-          </div>
+          </section>
 
-          <div className="register__field">
+          <section className="register__field">
             <label htmlFor="password" className="sr-only">Contraseña</label>
             <input id="password" name="password" type="password" placeholder="Contraseña" value={formData.password} onChange={handleChange} required />
-          </div>
+          </section>
 
-          <div className="register__field">
+          <section className="register__field">
             <label htmlFor="confirmPassword" className="sr-only">Confirmar Contraseña</label>
             <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirmar Contraseña" value={formData.confirmPassword} onChange={handleChange} required />
-          </div>
+          </section>
 
-          {error && <p className="register__error">{error}</p>}
+          {error && (
+            <p className="register__error">
+              {error.map((err) => (
+                <span key={err}>{err}</span>
+              ))}
+            </p>
+          )}
 
           <button type="submit" className="register__button" disabled={loading}>
             {loading ? "Registrando..." : "Registrarse"}

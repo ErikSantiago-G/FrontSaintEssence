@@ -15,9 +15,27 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
             const userResponse = await AuthService.me();
             set({ user: userResponse.data });
-        } catch (error) {
+        } catch (error: unknown) {
             console.error("Error en login:", error);
             set({ user: null });
+
+            let message = "Error al iniciar sesión";
+
+            if (typeof error === "object" && error !== null && "response" in error) {
+                const err = error as {
+                    response?: { data?: { message?: unknown } };
+                };
+
+                if (typeof err.response?.data?.message === "string") {
+                    message = err.response.data.message;
+                }
+
+                if (Array.isArray(err.response?.data?.message)) {
+                    message = err.response.data.message.join(", ");
+                }
+            }
+
+            throw new Error(message);
         } finally {
             set({ loading: false });
         }

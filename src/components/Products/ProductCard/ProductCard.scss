@@ -14,6 +14,7 @@
     cursor: pointer;
 
     &.loading {
+
         .product-card__icons,
         .product-card__image,
         .product-card__info {
@@ -63,6 +64,7 @@
             }
         }
     }
+
     &__image {
         display: flex;
         justify-content: center;
@@ -116,6 +118,8 @@
         font-weight: bold;
         font-size: 18px;
         transition: color 0.3s ease;
+        z-index: 10;
+        text-align: center;
     }
 
     &__category {
@@ -160,6 +164,13 @@
         .product-card__info {
             background-color: #fa2f84;
             color: $text-light;
+        }
+
+        .product-card__title {
+text-shadow: 
+  0 0 4px rgba(0, 0, 0, 0.45),
+  0 2px 6px rgba(0, 0, 0, 0.4);
+
         }
 
         .product-card__code,

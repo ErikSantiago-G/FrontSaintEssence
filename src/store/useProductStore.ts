@@ -15,7 +15,7 @@ export const useProductStore = create<ProductState>((set) => ({
   fetchProducts: async (page: number = 1, filters: ProductFilters = {}) => {
     set({ loading: true });
     try {
-      const { data } = await ProductService.getAll({ ...filters, page });
+      const { data } = await ProductService.getAll({ ...filters, page, limit: 12 });
       set({ products: data.data, meta: data.meta });
     } finally {
       set({ loading: false });
