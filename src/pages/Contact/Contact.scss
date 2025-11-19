@@ -1,22 +1,27 @@
+@use "@/styles/utils" as *;
+
 .contact {
-  min-height: 100vh;
-  padding: 20px;
-  
-  &__container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  &__title {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  &__description {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+
+    @include media-ltlg(){
+        flex-direction: column;
+    }
+}
+
+.contact-container-method {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-family: $font-tertiary;
+    }
+    img {
+        width: 520px;
+        height: 520px;
+    }
 }

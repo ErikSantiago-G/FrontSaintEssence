@@ -1,0 +1,45 @@
+@use "@/styles/utils" as *;
+
+.contact-methods-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 80px;
+  gap: 26px;
+  margin: 24px 0;
+
+  @include media-ltmd(){
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  height: max-content;
+
+  .icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      margin: 0;
+      font-size: 14px;
+      color: #8A8FB9;
+    }
+
+    .description {
+      font-size: 14px;
+      margin: 2px 0 0;
+      color: #8A8FB9;
+    }
+  }
+}

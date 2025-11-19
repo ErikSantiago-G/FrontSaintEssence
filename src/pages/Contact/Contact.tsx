@@ -1,15 +1,17 @@
 import './Contact.scss';
+import ContactForm from './ContactForm/ContactForm';
+import ContactMethod from './ContactMethod/ContactMethod';
 
 const Contact: React.FC = () => {
   return (
-    <div className="contact">
-      <div className="contact__container">
-        <h1 className="contact__title">Contacto</h1>
-        <p className="contact__description">
-          Página de perfil del usuario. Esta página será implementada pronto.
-        </p>
-      </div>
-    </div>
+    <section className="contact">
+      <ContactForm />
+      <section className='contact-container-method'>
+        <h2>Información de contacto</h2>
+        <ContactMethod />
+        <img src="https://res.cloudinary.com/dxspvj1rj/image/upload/v1763518429/Group_124_zh8cal.svg" alt="" />
+      </section>
+    </section>
   );
 };
 

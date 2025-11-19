@@ -1,6 +1,5 @@
-import React from "react";
-import "./CheckoutCancel.scss";
 import { XCircle } from "lucide-react";
+import "./CheckoutCancel.scss";
 
 const CheckoutCancel: React.FC = () => {
   return (

@@ -1,0 +1,51 @@
+@use "@/styles/utils" as *;
+
+.success-container {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+
+  .success-content {
+    text-align: center;
+    animation: slideIn 0.6s ease-out;
+
+    .checkmark {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      color: #4caf50;
+      stroke-dasharray: 50;
+      animation: checkmark 0.8s ease-out forwards;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 50;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
